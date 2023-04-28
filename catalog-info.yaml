@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: skraft-redhat-poi-backend-app-dev
+  annotations:
+    argocd/app-name: skraft-redhat-poi-backend-app-dev
+    backstage.io/kubernetes-id: skraft-redhat-poi-backend-app-dev
+    backstage.io/kubernetes-namespace: skraft-redhat
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/instance=skraft-redhat-poi-backend-app-dev'
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: Summit23DevRHEL/skraft-redhat-new-backend
+  tags:
+    - java
+    - quarkus
+    - maven
+    - workshop
+  links:
+    - url: https://console-openshift-console.apps.summit23-dr.w6gk.p1.openshiftapps.com/dev-pipelines/ns/skraft-redhat/
+      title: Pipelines
+      icon: web
+    - url: https://console-openshift-console.apps.summit23-dr.w6gk.p1.openshiftapps.com/k8s/ns/skraft-redhat/deployments/poi-backend-app
+      title: Deployment
+      icon: web
+    - url: https://devspaces.apps.summit23-dr.w6gk.p1.openshiftapps.com/#https://github.com/Summit23DevRHEL/skraft-redhat-new-backend?che-editor=che-incubator/che-code/latest&devfilePath=.devfile-vscode.yaml
+      title: OpenShift Dev Spaces (VS Code)
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: "user:skraft-redhat"
+  system: workshop-system-skraft-redhat
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: workshop-system-skraft-redhat
+  tags:
+    - backstage
+    - janus-idp
+    - openshift
+    - workshop
+    - rh-summit
+spec:
+  owner: "user:skraft-redhat"
